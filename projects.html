@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Projetos de Arthur Vieira carregados automaticamente do GitHub." />
+        <meta name="author" content="Arthur Vieira Fernandes Ribeiro" />
+        <title>Projetos | PortfolioHUB</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body class="d-flex flex-column h-100 bg-light">
+        <main class="flex-shrink-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+                <div class="container px-5">
+                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">Portfolio</span><span class="fw-bolder text-gradient">HUB</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Alternar navegação"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                            <li class="nav-item"><a class="nav-link" href="resume.html">Currículo</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="projects.html">Projetos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.html">Contato</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <section class="py-5">
+                <div class="container px-5 mb-5">
+                    <div class="text-center mb-3">
+                        <h1 class="display-5 fw-bolder mb-2"><span class="text-gradient d-inline">Projetos</span></h1>
+                        <p class="lead fw-normal text-muted mb-1">Repositórios carregados automaticamente do meu GitHub via API.</p>
+                        <a class="small fw-bolder text-decoration-none" href="https://github.com/Arthur259493" target="_blank" rel="noopener"><i class="bi bi-github"></i> github.com/Arthur259493</a>
+                    </div>
+                    <div id="projects-loading" class="text-center py-5">
+                        <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Carregando...</span></div>
+                        <p class="text-muted mt-3 mb-0">Buscando projetos no GitHub...</p>
+                    </div>
+                    <div id="projects-error" class="text-center py-5 d-none">
+                        <i class="bi bi-exclamation-triangle fs-1 text-secondary"></i>
+                        <p class="text-muted mt-2">Não foi possível carregar os projetos agora. Veja todos diretamente no
+                            <a href="https://github.com/Arthur259493?tab=repositories" target="_blank" rel="noopener">meu GitHub</a>.</p>
+                    </div>
+                    <div id="projects-grid" class="row gx-4 gy-4 justify-content-center"></div>
+                </div>
+            </section>
+            <section class="py-5 bg-gradient-primary-to-secondary text-white">
+                <div class="container px-5 my-3">
+                    <div class="text-center">
+                        <h2 class="display-5 fw-bolder mb-4">Vamos construir algo juntos?</h2>
+                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Entrar em contato</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="bg-white py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Arthur Vieira 2026</div></div>
+                    <div class="col-auto">
+                        <a class="small" href="index.html">Início</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="resume.html">Currículo</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small" href="contact.html">Contato</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
