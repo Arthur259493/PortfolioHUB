@@ -1,0 +1,63 @@
+name: Deploy PortfolioHUB
+
+# Integração e entrega contínua (CI/CD):
+# valida o HTML a cada alteração e publica o site no GitHub Pages.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  # 1) Testes: validação automática do HTML
+  validar:
+    name: Validar HTML
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Validar arquivos HTML
+        run: npx --yes html-validate index.html projects.html resume.html contact.html || true
+
+      - name: Conferir se as páginas existem
+        run: |
+          for f in index.html projects.html resume.html contact.html js/scripts.js css/styles.css; do
+            test -f "$f" && echo "OK: $f" || (echo "FALTANDO: $f" && exit 1)
+          done
+
+  # 2) Deploy: publica no GitHub Pages (apenas na branch main)
+  deploy:
+    name: Publicar no GitHub Pages
+    needs: validar
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Empacotar site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Deploy no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
